@@ -1,0 +1,309 @@
+:root{
+    --primary-color: #425A94;
+    --primary-color-light: #4176f0;
+    --primary-color-hard: #071b4b;
+    --secondary-color: #D32150;
+    --secondary-color-light: #e28ea4;
+    --secondary-color-hard: #9e173b;
+    --accent-color: #dd0000;
+    --blanco-1: #ffff;
+    --blanco-2: #f8f5f5;
+    --gris-1: #e6e3e3;
+    --gris-2: #3f3f3f;
+}
+
+*{
+    font-family: 'Inter Tight', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*EFECTO CAMISETA TITULAR*/
+
+.contenedor{
+    width: 60%;
+    margin: auto;
+    margin-top: 15rem;
+    display: grid;
+    justify-content: center;
+}
+
+.background{
+    background-color: var(--secondary-color);
+    width: 26rem;
+    height: 26rem;
+    border-radius: 50%;
+    display: grid;
+    grid-template-columns: 52% 48%;
+    transition: 2s;
+}
+
+.contenedor:hover .background{
+    background-color: var(--primary-color);
+    width: 50rem;
+    border-radius: 10px;
+}
+
+.texto-animacion{
+    grid-column: 2 / 3;
+    padding: 1.2rem;
+    color: var(--blanco-1);
+    z-index: -1;
+    transition: 2s;
+    display: grid;
+    grid-template-rows: 5rem 13rem 4rem;
+
+}
+
+.contenedor:hover .texto-animacion{
+    z-index: 0;
+}
+
+.tipografia-bold{
+    font-weight: 700;
+}
+
+.boton-camiseta-principal{
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--blanco-1);
+    color: var(--blanco-1);
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+    justify-self: end;
+    align-self: center;
+    transition: 2s;
+}
+
+.contenedor:hover .boton-camiseta-principal{
+    background-color: #D32150;
+}
+
+.contenedor img{
+    width: 27rem;
+    position: relative;
+    bottom: 3rem;
+    z-index: 1;
+}
+
+/*TIENDA DE PRODUCTOS*/
+
+/*Contenedor general*/
+
+.contenedor-productos{
+    width: 90%;
+    margin: auto;
+    margin-top: 7rem;
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 30rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+/*Contenedor de producto individual*/
+
+.productos{
+    max-width: 100%;
+    min-width: 15rem;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    gap: 0.5rem;
+
+}
+
+.productos:hover{
+    box-shadow: 0.3rem 0.3rem 0.3rem rgb(204, 201, 201);
+}
+
+/*Elementos del contenedor de producto individual*/
+
+.productos img{
+    width: 11rem;
+    justify-self: center;
+    transition: 1s;
+}
+
+.productos:hover img{
+    width: 12.5rem;
+}
+
+.productos h2{
+    color: var(--gris-2);
+}
+
+.precio{
+    font-size: 1.5rem;
+    color: var(--gris-2);
+}
+.contenedor-talles{
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.talles{
+    width: 2.5rem;
+    height: 2rem;
+    background-color: white;
+    border: 0.1rem solid rgb(219, 218, 218);
+    cursor: pointer;
+    display: grid;
+}
+
+.talles p{
+    justify-self: center;
+    color: var(--gris-2);
+    margin-top: 0.3rem;
+}
+
+.barra-talles{
+    width: 2rem;
+    height: 0.2rem;
+    background-color: var(--secondary-color);
+    justify-self: center;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.talles:hover .barra-talles{
+    z-index: 0;
+}
+
+.boton-comprar{
+    width: 90%;
+    background-color: var(--primary-color-hard);
+    color: var(--blanco-1);
+    border-radius: 10px;
+    border-style: none;
+    padding: 0.2rem;
+    cursor: pointer;
+    justify-self: center;
+    
+}
+
+.boton-comprar:hover{
+    background-color: #092f88;
+    
+}
+
+/*CARRITO*/
+
+.contenedor-columnas{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 40% 20% 20% 10% 10%;
+    
+}
+
+.productos-autogenerados{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 40% 20% 20% 10% 10%;
+    
+}
+
+.linea{
+    width: 100%;
+    height: 0.1rem;
+    background-color: #bebebe;
+}
+
+.contenedor-filas-productos-autogenerados{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.titulo-columnas{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.texto-filas{
+    align-self: center;
+}
+
+.carrito-producto{
+    display: flex;
+    gap: 1rem;
+}
+
+.carrito-producto p{
+    align-self: center;
+}
+
+.carrito-producto img{
+    width: 3rem;
+}
+
+.carrito-talle{
+    align-self: center;
+}
+
+.input-cantidad{
+    width: 2.8rem;
+    height: 1.5rem;
+    text-align: center;
+    align-self: center;
+}
+
+.boton-borrar{
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border-style: none;
+    align-self: center;
+
+}
+/*FINALIZAR COMPRA*/ 
+
+
+.finalizar-compra{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.total-contenedor{
+    justify-self: end;
+    display: flex;
+    gap: 1rem;
+}
+
+.total{
+    font-size: 1.5rem;
+    font-weight: 600;
+    align-self: center;
+}
+
+.palabra-total{
+    font-size: 1.5rem;
+    font-weight: 400;
+    align-self: center;
+}
+
+.boton-finalizar-compra{
+    width: fit-content;
+    background-color: var(--primary-color-hard);
+    color: var(--blanco-1);
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border-style: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    justify-self: end; 
+}
