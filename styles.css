@@ -19,12 +19,60 @@
     padding: 0;
 }
 
+/*HEADER CONTAINER*/
+
+.header-container{
+    width: 100%;
+    height: 22rem;
+    padding-bottom: 6rem;
+    background-image: url(images/background.svg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+}
+
+.header-container h1{
+    width: 90%;
+    margin: auto;
+    padding-left: 1rem;
+    font-size: 7rem;
+    font-weight: 800;
+    color: var(--blanco-1);
+}
+
+.cuervos{
+    width: 39rem;
+    justify-self: center;
+    position: relative;
+    top: 0.3rem;
+}
+
+.container-escudo{
+    width: 90%;
+    display: grid;
+}
+
+.escudo{
+    width: 9rem;
+    justify-self: center;
+    align-self: end;
+}
+
 /*EFECTO CAMISETA TITULAR*/
+
+.titulo-camiseta{
+    width: 90%;
+    margin: auto;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--gris-2);
+}
 
 .contenedor{
     width: 60%;
     margin: auto;
-    margin-top: 15rem;
+    margin-top: 5rem;
     display: grid;
     justify-content: center;
 }
@@ -40,7 +88,7 @@
 }
 
 .contenedor:hover .background{
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-hard);
     width: 50rem;
     border-radius: 10px;
 }
@@ -72,8 +120,7 @@
     font-size: 1.3rem;
     padding: 0.5rem;
     border-radius: 10px;
-    border-style: none;
-    cursor: pointer;
+    text-decoration: none;
     justify-self: end;
     align-self: center;
     transition: 2s;
@@ -134,6 +181,7 @@
 
 .productos h2{
     color: var(--gris-2);
+    font-size: 1.3rem;
 }
 
 .precio{
@@ -174,6 +222,15 @@
     z-index: 0;
 }
 
+.barra-talles--fijo{
+    width: 2rem;
+    height: 0.2rem;
+    background-color: var(--secondary-color);
+    justify-self: center;
+    z-index: 1;
+    transition: 0.5s;
+}
+
 .boton-comprar{
     width: 90%;
     background-color: var(--primary-color-hard);
@@ -191,11 +248,28 @@
     
 }
 
+.boton-ir-a-carrito{
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+    text-decoration: none;
+    color: var(--blanco-1);
+}
+
 /*CARRITO*/
+
+.titulo-carrito-movil{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+    color: var(--gris-2);
+    opacity: 0;
+}
 
 .contenedor-columnas{
     width: 90%;
     margin: auto;
+    margin-bottom: 1rem;
+    color: var(--gris-2);
     display: grid;
     gap: 1rem;
     grid-template-columns: 40% 20% 20% 10% 10%;
@@ -205,6 +279,7 @@
 .productos-autogenerados{
     width: 90%;
     margin: auto;
+    color: var(--gris-2);
     display: grid;
     gap: 1rem;
     grid-template-columns: 40% 20% 20% 10% 10%;
@@ -270,10 +345,13 @@
 }
 /*FINALIZAR COMPRA*/ 
 
-
+.contenedor-columnas{
+    margin-top: 2rem;
+}
 .finalizar-compra{
     width: 90%;
     margin: auto;
+    color: var(--gris-2);
     display: grid;
     gap: 1rem;
 }
@@ -306,4 +384,254 @@
     padding: 0.5rem;
     cursor: pointer;
     justify-self: end; 
+}
+
+/*MODAL*/
+
+.contenedor-modal{ /*Es el fondo negro con opacidad*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    z-index: 2;
+    opacity: 0; /*Hacemos que solo se vea con la clase show*/
+    pointer-events: none; /*Le sacamos los atributos clickeables para que solo los tenga con la clase show*/
+    /*ABAJO VAMOS A MEJORAR LA TRANSICIÓN*/
+    transition: opacity .6s .9s; /*Indicamos transición de opacidad suave al abrir y cerrar el modal*/
+    --transform: translateY(-100vh); /*Creamos una propiedad customizada para que baje de arriba el Modal*/
+    --transition: transform .7s; /*Creamos una propiedad customizada para hacer suave la transición que hicimos con transform*/
+}
+
+.contenedor-modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    /*ABAJO VAMOS A MEJORAR LA TRANSICIÓN*/
+    transition: opacity .6s; /*Indicamos transición de opacidad suave al abrir y cerrar el modal*/
+    --transform: translateY(0); /*Creamos una propiedad customizada para que baje de arriba el Modal*/
+    --transition: transform .7s .7s; /*Creamos una propiedad customizada para hacer suave la transición que hicimos con transform*/
+}
+
+.modal{
+    width: 90%;
+    max-width: 40rem;
+    background-color: var(--blanco-1);
+    box-shadow: 0.2rem 0.2rem 0.2rem rgb(59, 58, 58);
+    margin: auto;
+    padding: 1rem;
+    margin-top: 10rem;
+    border-radius: 8px;
+    display: grid;
+    gap: 1rem;
+    transform: var(--transform); /*Agregamos la transición que hicimos para el contenedor*/
+    transition:var(--transition); /*Agregamos la transición que hicimos para el contenedor*/
+}
+
+.modal-close{
+    justify-self: right;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.titulo-modal{
+    color: var(--gris-2);
+    font-size: 1.5rem;
+    text-align: center;
+    justify-self: center;
+}
+
+.contenedor-imagenes-modal{
+    justify-self: center;
+    display: grid;
+}
+
+.imagen-modal{
+    width: 10rem;
+    position: relative;
+    animation-name: salto;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    z-index: 1;
+}
+
+@keyframes salto {
+    0% {top: 1rem;}
+    50%{top: 0;}
+    100%{top: 1rem;}
+}
+
+.sombra-robot{
+    width: 10rem;
+    position: relative;
+    left: 0.3rem;
+}
+
+.texto-modal{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+    color: var(--gris-2);
+    line-height: 1.5rem;
+}
+
+.portfolio{
+    font-weight: 800;
+    color: var(--primary-color-hard) ;
+}
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 1547px) {
+    .header-container h1{
+        font-size: 5rem;
+    }
+  }
+
+@media (max-width: 1121px) {
+    .header-container h1{
+        font-size: 4rem;
+    }
+
+    .cuervos{
+        width: 35rem;
+    }
+
+    .escudo{
+        position: relative;
+        top: 1rem;
+    }
+  }
+
+@media (max-width: 800px) {
+    .header-container{
+        grid-template-columns: 50% 50%;
+        margin-bottom: 2.5rem;
+    }
+
+    .cuervos{
+        width: 30rem;
+    }
+
+    .container-escudo{
+        margin: auto;
+        grid-column: 1 / 3;
+    }
+
+    .escudo{
+        position: relative;
+        top: 0rem;
+    }
+
+    /*Queries de la camiseta*/
+
+    .contenedor{
+        display: none;
+    }
+
+    .contenedor-productos{
+        position: relative;
+        bottom: 6.5rem;
+    }
+
+    
+}
+
+@media (max-width: 700px){
+
+    .titulo-carrito-movil{
+        opacity: 1;
+    }
+
+    .contenedor-columnas{
+        display: none;
+    }
+
+    .contenedor-filas-productos-autogenerados{
+        width: 90%;
+    }
+    
+    .productos-autogenerados{
+        height: 9rem;
+        grid-template-columns: 55% 20% 17%;
+        grid-template-rows: 30% 30% 30%;
+        gap: 0.5rem;
+        box-shadow: 0.3rem 0.3rem 0.3rem rgb(204, 201, 201);
+    }
+    
+    .texto-filas{ /*Es el precip*/
+        grid-column:  2 / 3;
+        grid-row: 3 / 4;
+        justify-self: end;
+        position: relative;
+        bottom: 1.5rem;
+    }
+    
+    .carrito-producto{
+        grid-row: 1/4 ;
+        display: grid;
+        grid-template-rows: 20% 80%;
+        gap: 0.5rem;
+    }
+    
+    .carrito-producto p{
+        grid-row: 1 / 2;
+        align-self: start;
+        justify-self: start;
+        font-weight: 700;
+    }
+    
+    .carrito-producto img{
+        grid-row: 2 / 3;
+        width: 5rem;
+        justify-self: center;
+    }
+    
+    .carrito-talle{
+        grid-column:  2 / 3;
+        grid-row: 1 / 2;
+        justify-self: end;
+        position: relative;
+        top: 3rem;
+    }
+    
+    .input-cantidad{
+        grid-column:  2 / 3;
+        grid-row: 2 / 3;
+        justify-self: end;
+    }
+    
+    .boton-borrar{
+        grid-column: 3 / 4;
+        grid-row: 1 / 4;
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 644px) {
+    .header-container{
+        grid-template-columns: 50% 50%;
+        margin-bottom: 4rem;
+    }
+
+    .cuervos{
+        width: 28rem;
+        position: relative;
+        left: 5rem;
+    }
+}
+
+@media (max-width: 412px) {
+    .cuervos{
+        width: 26rem;
+        position: relative;
+        left: 7rem;
+    }
 }
