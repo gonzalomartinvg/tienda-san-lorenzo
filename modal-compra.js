@@ -1,5 +1,5 @@
 const botonComprar = document.querySelector(".boton-finalizar-compra");
-const contenedorModal = document.querySelector(".contenedor-modal")
+const contenedorModal = document.querySelector(".modal-after-compra")
 const modalClose = document.querySelector(".modal-close")
 
 botonComprar.addEventListener('click', (e)=>{
