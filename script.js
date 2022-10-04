@@ -7,7 +7,7 @@ todosLosTalles.forEach(seleccionDeTalle => {
     seleccionDeTalle.addEventListener("click", selectorDeTalle);
 });
 
-let talleProducto = undefined; // PRIMERO CREO LA VARIABLE talleProducto, QUE VA A QUEDAR MODIFICADA con la siguiente función y también va a ser el que usemos abajo en la función que generamos un producto en el listado del carrito.
+let talleProducto = "no seleccionaste talle"; // PRIMERO CREO LA VARIABLE talleProducto, QUE VA A QUEDAR MODIFICADA con la siguiente función y también va a ser el que usemos abajo en la función que generamos un producto en el listado del carrito.
 
 function selectorDeTalle(event){
 
@@ -50,16 +50,36 @@ todosLosBotonesDeCompra.forEach(botonDeCompra => {
 // 3) Creamos la función "agregarACarrito"
 
 function agregarACarrito(event){
+
+    /*Primero vamos a hacer que si la persona clickea en "Comprar" pero no selecciono talle que aparezca un modal.*/
+
+    const contenedorNoSeleccionasteTalle = document.querySelector(".no-seleccion-talle") //Seleccionamos el modal de no selección de talle.
+    const modalClose = document.querySelector(".modal-close") // Seleccionamos el botón de cerrar modal.
+
+    //Hacemos un condicional, si el talle producto es igual a "no seleccionaste talle" aparece el cartel, si tiene otro valor, ejecuta la suma del producto al carrito. La variable talleProducto, la declaramos en el punto 1 y le adjudicamos el valor "no seleccionaste talle".
+
+    if(talleProducto == "no seleccionaste talle"){
+        
+    contenedorNoSeleccionasteTalle.classList.add("contenedor-modal--show");
+
+    modalClose.addEventListener('click', (e)=>{
+        e.preventDefault();
+        contenedorNoSeleccionasteTalle.classList.remove("contenedor-modal--show"); 
+    });
+    }
+
+    else{
     const boton = event.target;
     const contenedorProductos = boton.closest(".productos"); //Indicamos que de la constante boton (que es el botón de compra) busquemos el elemento con la clase ".productos" más cercano (por eso el .closest). En este caso, vamos a acceder al div contenedor de toda la tarjeta de compra. De esta forma, accedemos al div contenedor de la tarjeta a la que le hicimos click en el paso 2.
 
     const nombreProducto = contenedorProductos.querySelector(".nombre-producto").textContent;
     const imagenProducto = contenedorProductos.querySelector(".imagen-producto").src;
     const precioProducto = contenedorProductos.querySelector(".precio").textContent;
-    
-// Hasta acá, le dijimos que cuando le demos click en comprar capturemos todos los datos de cada tarjeta. Ahora, vamos a hacer que coloque esos datos en el carrito de compras con una nueva función.
 
-sumarAlCarrito(nombreProducto, imagenProducto, precioProducto, talleProducto); //Declarando esto guardamos los valores obtenidos en esta función y la relacionamos con la función que trabajaremos abajo.
+    // Hasta acá, le dijimos que cuando le demos click en comprar capturemos todos los datos de cada tarjeta. Ahora, vamos a hacer que coloque esos datos en el carrito de compras con una nueva función.
+
+    sumarAlCarrito(nombreProducto, imagenProducto, precioProducto, talleProducto); //Declarando esto guardamos los valores obtenidos en esta función y la relacionamos con la función que trabajaremos abajo.
+    }
     
 };
 
