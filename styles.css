@@ -529,6 +529,14 @@
         top: 0rem;
     }
 
+    .contenedor-productos{
+        grid-auto-rows: 25rem;
+    }
+
+    .productos{
+        box-shadow: 0.3rem 0.3rem 0.3rem rgb(204, 201, 201);
+    }
+
     /*Queries de la camiseta*/
 
     .contenedor{
@@ -565,7 +573,7 @@
         box-shadow: 0.3rem 0.3rem 0.3rem rgb(204, 201, 201);
     }
     
-    .texto-filas{ /*Es el precip*/
+    .texto-filas{ /*Es el precio*/
         grid-column:  2 / 3;
         grid-row: 3 / 4;
         justify-self: end;
