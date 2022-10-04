@@ -23,7 +23,7 @@
 
 .header-container{
     width: 100%;
-    height: 23rem;
+    height: 22rem;
     padding-bottom: 6rem;
     background-image: url(images/background.svg);
     background-size: cover;
@@ -35,7 +35,7 @@
     width: 90%;
     margin: auto;
     padding-left: 1rem;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     font-size: 7rem;
     font-weight: 800;
     color: var(--blanco-1);
@@ -526,8 +526,13 @@ footer{
 
 @media (max-width: 800px) {
     .header-container{
+        height: 24rem;
         grid-template-columns: 50% 50%;
-        margin-bottom: 2.5rem;
+        margin-bottom: 0rem;
+    }
+
+    .header-container h1{
+        margin-top: 1rem;
     }
 
     .cuervos{
@@ -542,6 +547,10 @@ footer{
     .escudo{
         position: relative;
         top: 0rem;
+    }
+
+    .titulo-camiseta{
+        margin-bottom: 8rem;
     }
 
     .contenedor-productos{
@@ -644,8 +653,20 @@ footer{
         margin-bottom: 4rem;
     }
 
+    .escudo{
+        position: relative;
+        top: 3rem;
+    }
+
     .cuervos{
         width: 90%;;
+    }
+}
+
+@media (max-width: 545px) {
+    .escudo{
+        position: relative;
+        top: 0.8rem;
     }
 }
 
@@ -654,5 +675,10 @@ footer{
         width: 100%;
         position: relative;
         top: 4.5rem;
+    }
+
+    .escudo{
+        position: relative;
+        top: 0rem;
     }
 }
